@@ -1,5 +1,13 @@
 node_modules/
-out/
-*.pdf
 .DS_Store
 Thumbs.db
+
+# Ignore generated files in out/ except the non-generated code of conduct pdf
+out/**
+!out/
+!out/pdf/
+!out/pdf/code-of-conduct-dark.pdf
+
+# Ignore all other generated PDFs
+*.pdf
+!out/pdf/code-of-conduct-dark.pdf
