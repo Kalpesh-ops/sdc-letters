@@ -1,0 +1,156 @@
+{
+  "_note": "Departments and positions for the form and CSV. `scoped: true` positions belong to a department and render as \"{department} {label}\"; board positions ignore department. Bullets may use {department}. Replace any TODO before sending letters. Optional per position: `titleWithDepartment: false` (letter says \"Core Member\" not \"Technical Core Member\"), and `closing: { <type>: [paragraphs] }` to replace copy.json's closing for that letter type.",
+  "boardDepartment": "Executive Board",
+  "departments": [
+    {
+      "name": "Technical",
+      "short": "Technical"
+    },
+    {
+      "name": "Event Management",
+      "short": "Event Management"
+    },
+    {
+      "name": "Public Relations and Outreach",
+      "short": "PR and Outreach"
+    },
+    {
+      "name": "Social Media and Content",
+      "short": "Social Media and Content"
+    },
+    {
+      "name": "Videography and Editing",
+      "short": "Videography and Editing"
+    },
+    {
+      "name": "Design",
+      "short": "Design"
+    }
+  ],
+  "positions": [
+    {
+      "key": "president",
+      "label": "President",
+      "scoped": false,
+      "listIntro": "As President, your responsibilities include:",
+      "bullets": [
+        "Defining the vision and long-term goals of the club.",
+        "Overseeing all teams and ensuring harmony among Leads, Co-Leads and members.",
+        "Representing the club at official forums, collaborations and institutional events.",
+        "Driving innovation and growth so every initiative reflects the spirit of SDC."
+      ],
+      "closingLine": "We are confident you will guide the club to greater heights."
+    },
+    {
+      "key": "vice-president",
+      "label": "Vice President",
+      "scoped": false,
+      "listIntro": "As Vice President, your responsibilities include:",
+      "bullets": [
+        "Supporting the President in all strategic decisions and initiatives.",
+        "Acting as a bridge between the executive leadership and team Leads.",
+        "Guiding major projects, collaborations and club-wide events.",
+        "Acting as President in the President's absence."
+      ],
+      "closingLine": "We trust you to lead from the front and keep the club running smoothly."
+    },
+    {
+      "key": "general-secretary",
+      "label": "General Secretary",
+      "scoped": false,
+      "listIntro": "As General Secretary, your responsibilities include:",
+      "bullets": [
+        "Maintaining records of meetings, decisions and key activities.",
+        "Coordinating communication between members, Leads and faculty.",
+        "Assisting in event planning, correspondence and reporting.",
+        "Ensuring smooth internal operations and accountability."
+      ],
+      "closingLine": "We are confident your work will keep the club running with clarity."
+    },
+    {
+      "key": "operations-lead",
+      "label": "Operations Lead",
+      "scoped": false,
+      "listIntro": "As Operations Lead, your responsibilities include:",
+      "bullets": [
+        "Overseeing the smooth execution of all events and activities.",
+        "Coordinating across teams so that deadlines and goals are met.",
+        "Managing resources, schedules and logistics for club initiatives.",
+        "Helping the leadership translate plans into action."
+      ],
+      "closingLine": "We look forward to your impact on how the club delivers."
+    },
+    {
+      "key": "financial-lead",
+      "label": "Financial Lead",
+      "scoped": false,
+      "listIntro": "As Financial Lead, your responsibilities include:",
+      "bullets": [
+        "Managing the club's budget: forecasting, allocation and tracking of spend.",
+        "Overseeing all financial transactions, from sponsorships to event funds.",
+        "Maintaining accurate and transparent records for reporting and audit.",
+        "Advising the leadership on the feasibility of its initiatives."
+      ],
+      "closingLine": "We trust you to keep the club on a sound financial footing."
+    },
+    {
+      "key": "student-coordinator",
+      "label": "Student Coordinator",
+      "scoped": false,
+      "listIntro": "As Student Coordinator, your responsibilities include:",
+      "bullets": [
+        "TODO: responsibility one.",
+        "TODO: responsibility two.",
+        "TODO: responsibility three.",
+        "TODO: responsibility four."
+      ],
+      "closingLine": "We trust your dedication will serve the club and its members well."
+    },
+    {
+      "key": "lead",
+      "label": "Lead",
+      "scoped": true,
+      "listIntro": "As a Lead, your responsibilities include:",
+      "bullets": [
+        "Leading and managing the {department} domain.",
+        "Setting goals and ensuring smooth execution of projects and events.",
+        "Mentoring and giving direction to Co-Leads and core members.",
+        "Aligning your team's vision with the club's overall mission."
+      ],
+      "closingLine": "We look forward to seeing you and your team thrive this session."
+    },
+    {
+      "key": "co-lead",
+      "label": "Co-Lead",
+      "scoped": true,
+      "listIntro": "As a Co-Lead, you will work alongside your Lead to:",
+      "bullets": [
+        "Support the planning, execution and monitoring of projects and events.",
+        "Mentor and guide core members within your team.",
+        "Foster collaboration, creativity and innovation.",
+        "Serve as a bridge between the team and the club's leadership."
+      ],
+      "closingLine": "We trust your dedication and leadership will inspire others."
+    },
+    {
+      "key": "core-member",
+      "label": "Core Member",
+      "scoped": true,
+      "listIntro": "As a Core Member, you will be an integral part of the club’s functioning and growth. Your role will involve:",
+      "bullets": [
+        "Actively contributing to your respective department ({department}).",
+        "Supporting your Leads and Co-Leads in executing projects, events, and initiatives.",
+        "Bringing creativity, teamwork, and dedication to every task you undertake.",
+        "Continuously learning, improving your skills, and taking ownership of your contributions."
+      ],
+      "closingLine": "We look forward to the value you bring to the team.",
+      "titleWithDepartment": false,
+      "closing": {
+        "appointment": [
+          "This position is not just about responsibility but about growth. As a core member, you are the foundation of the club — the driving force behind every success we achieve. We believe your energy and enthusiasm will make a lasting impact.",
+          "We look forward to working with you and witnessing the value you bring to the team. Wishing you an exciting and fulfilling journey ahead."
+        ]
+      }
+    }
+  ]
+}

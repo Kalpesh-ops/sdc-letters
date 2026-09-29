@@ -1,0 +1,20 @@
+{
+  "name": "letters",
+  "version": "1.0.0",
+  "description": "Self-contained. No npm install, no build step, no network (one Google font, with a fallback). Everything the letter needs is in this folder.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.mjs",
+    "batch": "node render.mjs --csv batch.csv --pdf",
+    "conduct": "node conduct/render.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "pdf-lib": "^1.17.1",
+    "puppeteer": "^25.11.0"
+  }
+}

@@ -1,0 +1,65 @@
+/* SDC letter tokens — self-contained subset of the SDC Design System.
+   Only what the letter template needs. Font files are local (./fonts/);
+   JetBrains Mono (the micro face) is the one Google-hosted face — the
+   fallback below keeps letters correct offline. */
+
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap");
+
+@font-face{font-family:"Anton";src:url("./fonts/Anton-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Outfit";src:url("./fonts/Outfit-Light.ttf") format("truetype");font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:"Outfit";src:url("./fonts/Outfit-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Outfit";src:url("./fonts/Outfit-Medium.ttf") format("truetype");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"Outfit";src:url("./fonts/Outfit-SemiBold.ttf") format("truetype");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"Outfit";src:url("./fonts/Outfit-Bold.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap}
+
+:root{
+  --sdc-font-display:"Anton","Arial Narrow",sans-serif;
+  --sdc-font-ui:"Outfit","Segoe UI","Helvetica Neue",Helvetica,sans-serif;
+  --sdc-font-micro:"JetBrains Mono",ui-monospace,"Courier New",monospace;
+
+  --sdc-ink-900:#07040f;
+  --sdc-paper:#f6eef8;
+  --sdc-micro-strong:rgba(246,238,248,0.80);
+  --sdc-micro-quiet:rgba(246,238,248,0.42);
+  --sdc-hairline:rgba(246,238,248,0.16);
+  --sdc-hairline-strong:rgba(246,238,248,0.55);
+
+  --sdc-ramp-1:#ff7a3d;
+  --sdc-ramp-2:#d63a9c;
+  --sdc-ramp-3:#7b34dc;
+
+  --sdc-grain-url:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --sdc-grain-opacity:0.45;
+}
+
+.sdc-grain{position:absolute;inset:0;pointer-events:none;opacity:var(--sdc-grain-opacity);mix-blend-mode:overlay;background-image:var(--sdc-grain-url)}
+
+a{color:#e79ad0}
+a:hover{color:#f4c4e6}
+
+/* ---- Light theme: warm paper ground, brand wash, violet rules ---- */
+[data-theme="light"]{
+  --sdc-ink-900:#F4EEF4;
+  --sdc-paper:#1A1024;
+  --sdc-micro-strong:#3A2A48;
+  --sdc-micro-quiet:#7A6488;
+  --sdc-hairline:rgba(26,16,36,.14);
+  --sdc-hairline-strong:rgba(123,52,220,.5);
+}
+[data-theme="light"] [data-glow]{background:radial-gradient(70% 34% at 50% -4%, rgba(214,58,156,.16) 0%, rgba(123,52,220,.07) 44%, rgba(244,238,244,0) 78%)!important}
+[data-theme="light"] [data-glow]+[data-glow]{background:radial-gradient(44% 26% at 50% 104%, rgba(255,122,61,.11), rgba(244,238,244,0) 72%)!important}
+[data-theme="light"] [data-inv]{filter:invert(1)}
+[data-theme="light"] [data-wm]{opacity:.08!important}
+[data-theme="light"] h1{text-shadow:0 0 34px rgba(123,52,220,.16)!important}
+[data-theme="light"] .sdc-grain{opacity:.16!important}
+
+/* ---- Page furniture ---- */
+html,body{margin:0;padding:0;background:#1B1520}
+@page{size:A4;margin:0}
+@media print{
+  html,body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .sheet-stack{padding:0!important;gap:0!important}
+  .sheet-stack>*{page-break-after:always;break-after:page}
+  .sheet-stack>*:last-child{page-break-after:auto;break-after:auto}
+}
+.sheet-stack{display:flex;flex-direction:column;align-items:center;gap:28px;padding:28px 0}

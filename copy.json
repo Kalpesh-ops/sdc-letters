@@ -1,0 +1,143 @@
+{
+  "_note": "House wording per letter type. Tokens: {name} {department} {departmentShort} {position} {title} {session} {date} {effective} {closingLine}. {title} is \"Technical Lead\" for department roles and \"President\" for board roles. \"@role\" pulls listIntro / bullets for the record's position from roles.json. Inline <strong> allowed.",
+  "appointment": {
+    "label": "Appointment",
+    "heading": [
+      "Letter of",
+      "Appointment"
+    ],
+    "meta": [
+      {
+        "label": "Appointee",
+        "value": "{name}"
+      },
+      {
+        "label": "Department",
+        "value": "{departmentShort}"
+      },
+      {
+        "label": "Position",
+        "value": "{position}"
+      },
+      {
+        "label": "Tenure",
+        "value": "{session}"
+      }
+    ],
+    "salutation": "Dear {name},",
+    "paragraphs": [
+      "The Software Development Club, VIT Bhopal University, is pleased to appoint you as <strong>{title}</strong> for the {sessionLower}. The appointment takes effect from the date of this letter and continues until the close of the session."
+    ],
+    "listIntro": "@role",
+    "bullets": "@role",
+    "closing": [
+      "{closingLine} Please acknowledge receipt of this letter in writing."
+    ]
+  },
+  "promotion": {
+    "label": "Promotion",
+    "heading": [
+      "Letter of",
+      "Promotion"
+    ],
+    "meta": [
+      {
+        "label": "Member",
+        "value": "{name}"
+      },
+      {
+        "label": "Department",
+        "value": "{departmentShort}"
+      },
+      {
+        "label": "New Role",
+        "value": "{position}"
+      },
+      {
+        "label": "Tenure",
+        "value": "{session}"
+      }
+    ],
+    "salutation": "Dear {name},",
+    "paragraphs": [
+      "On the recommendation of the leadership, the Software Development Club is pleased to promote you to <strong>{title}</strong> with effect from the date of this letter, in recognition of your work over the preceding term."
+    ],
+    "listIntro": "@role",
+    "bullets": "@role",
+    "closing": [
+      "All other terms of your appointment continue unchanged. Please acknowledge receipt of this letter in writing."
+    ]
+  },
+  "termination": {
+    "label": "Termination",
+    "heading": [
+      "Letter of",
+      "Termination"
+    ],
+    "meta": [
+      {
+        "label": "Member",
+        "value": "{name}"
+      },
+      {
+        "label": "Department",
+        "value": "{departmentShort}"
+      },
+      {
+        "label": "Position",
+        "value": "{position}"
+      },
+      {
+        "label": "Effective",
+        "value": "{effective}"
+      }
+    ],
+    "salutation": "Dear {name},",
+    "paragraphs": [
+      "Following review by the leadership, the Software Development Club has decided to <strong>terminate your appointment as {title}</strong> with effect from {effective}. The matter was put to you and your response considered."
+    ],
+    "listIntro": "The following applies from the effective date:",
+    "bullets": [
+      "You cease to hold office and to represent the club in any capacity.",
+      "Club accounts, files, assets and credentials are to be handed over within seven days.",
+      "Work completed before this date remains credited to you in the club's record.",
+      "You may appeal in writing to the faculty coordinator within seven days."
+    ],
+    "closing": [
+      "Your membership of the university community is unaffected by this letter. Please acknowledge receipt of this letter in writing."
+    ]
+  },
+  "tenure": {
+    "label": "Tenure Completion",
+    "heading": [
+      "Letter of",
+      "Tenure Completion"
+    ],
+    "meta": [
+      {
+        "label": "Member",
+        "value": "{name}"
+      },
+      {
+        "label": "Department",
+        "value": "{departmentShort}"
+      },
+      {
+        "label": "Position",
+        "value": "{position}"
+      },
+      {
+        "label": "Tenure",
+        "value": "{session}"
+      }
+    ],
+    "salutation": "Dear {name},",
+    "paragraphs": [
+      "As your tenure as <strong>{title}</strong> of the Software Development Club, VIT Bhopal University, comes to a close, the club records its sincere gratitude for your dedication, leadership and contribution throughout the {session}.",
+      "Under your stewardship the club has grown as a space for innovation, learning and collaboration. Your initiatives set new benchmarks, your mentorship helped members step up, and your pursuit of excellence leaves a legacy for the incoming leadership."
+    ],
+    "closing": [
+      "Though your role concludes, your contribution remains part of the club's foundation. We wish you continued success in all your future endeavours."
+    ]
+  }
+}

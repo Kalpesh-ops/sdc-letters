@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SDC Letters</title>
+<link rel="stylesheet" href="/tokens.css">
+<style>
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  body { font-family: var(--sdc-font-ui); color: var(--sdc-paper); background: var(--sdc-ink-900); min-height: 100vh; }
+  .app { display: grid; grid-template-columns: 380px 1fr; min-height: 100vh; }
+  aside { padding: 32px 28px; border-right: 1px solid var(--sdc-hairline); display: flex; flex-direction: column; gap: 18px; }
+  header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+  header img { width: 34px; height: 34px; }
+  h1 { margin: 0; font-family: var(--sdc-font-display); font-weight: 400; font-size: 26px; letter-spacing: .03em; text-transform: uppercase; line-height: 1; }
+  .micro { font-family: var(--sdc-font-micro); font-size: 9px; letter-spacing: .3em; text-transform: uppercase; color: var(--sdc-micro-quiet); }
+  label { display: flex; flex-direction: column; gap: 7px; }
+  select, input, textarea {
+    font: 400 14px var(--sdc-font-ui); color: var(--sdc-paper); background: rgba(246,238,248,.04);
+    border: 1px solid var(--sdc-hairline); border-radius: 6px; padding: 10px 12px; outline: none;
+  }
+  select:focus, input:focus, textarea:focus { border-color: var(--sdc-hairline-strong); }
+  select:disabled { opacity: .4; }
+  option { background: #120b1c; }
+  textarea { min-height: 150px; resize: vertical; line-height: 1.6; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .seg { display: flex; border: 1px solid var(--sdc-hairline); border-radius: 6px; overflow: hidden; }
+  .seg button { flex: 1; font: 500 13px var(--sdc-font-ui); color: var(--sdc-micro-quiet); background: none; border: 0; padding: 9px; cursor: pointer; }
+  .seg button[aria-pressed="true"] { color: var(--sdc-paper); background: rgba(246,238,248,.1); }
+  .go {
+    margin-top: 6px; font: 600 14px var(--sdc-font-ui); letter-spacing: .02em; color: #fff; border: 0; border-radius: 6px; padding: 13px;
+    background: linear-gradient(90deg, var(--sdc-ramp-1), var(--sdc-ramp-2), var(--sdc-ramp-3)); cursor: pointer;
+  }
+  .go:disabled { opacity: .5; cursor: progress; }
+  .count { color: var(--sdc-micro-quiet); font-size: 12px; }
+  #result { font-size: 13px; line-height: 1.6; }
+  #result a { word-break: break-all; }
+  .err { color: #ff8a8a; }
+  .warn { color: #ffc27a; }
+  .ok { color: #9be3b0; }
+  main { display: flex; align-items: flex-start; justify-content: center; padding: 32px; overflow: auto; }
+  .frame { width: calc(794px * var(--s)); height: calc(1123px * var(--s)); flex: none; box-shadow: 0 20px 60px rgba(0,0,0,.5); }
+  .frame iframe { width: 794px; height: 1123px; border: 0; transform: scale(var(--s)); transform-origin: 0 0; background: #07040f; }
+  @media (max-width: 900px) { .app { grid-template-columns: 1fr; } aside { border-right: 0; border-bottom: 1px solid var(--sdc-hairline); } }
+</style>
+</head>
+<body>
+<div class="app">
+  <aside>
+    <header>
+      <img src="/brand/logo-circular.webp" alt="">
+      <div>
+        <h1>Letters</h1>
+        <div class="micro" id="session" style="margin-top:6px"></div>
+      </div>
+    </header>
+
+    <label><span class="micro">Letter type</span><select id="type"></select></label>
+    <label><span class="micro">Position</span><select id="position"></select></label>
+    <label><span class="micro">Department</span><select id="department"></select></label>
+    <label>
+      <span class="micro">Names — one per line</span>
+      <textarea id="names" placeholder="Aashish Prasad&#10;Sakshi Sharma"></textarea>
+      <span class="count" id="count">0 letters</span>
+    </label>
+    <div class="row">
+      <label><span class="micro">Date</span><input id="date" type="date"></label>
+      <label id="effWrap" hidden><span class="micro">Effective</span><input id="effective" type="date"></label>
+    </div>
+    <label><span class="micro">Theme</span>
+      <div class="seg" id="theme">
+        <button type="button" data-v="dark" aria-pressed="true">Dark</button>
+        <button type="button" data-v="light" aria-pressed="false">Light</button>
+      </div>
+    </label>
+    <button class="go" id="go">Generate PDFs</button>
+    <div id="result"></div>
+  </aside>
+  <main><div class="frame" id="frame"><iframe id="preview" title="Letter preview"></iframe></div></main>
+</div>
+
+<script>
+const $ = (id) => document.getElementById(id);
+let opts;
+
+const fmt = (iso) => {
+  if (!iso) return '';
+  const d = new Date(iso + 'T00:00'), n = d.getDate();
+  const suffix = n % 10 === 1 && n !== 11 ? 'st' : n % 10 === 2 && n !== 12 ? 'nd' : n % 10 === 3 && n !== 13 ? 'rd' : 'th';
+  return `${n}${suffix} ${d.toLocaleDateString('en-GB', { month: 'long', year: 'numeric' })}`;
+};
+const names = () => $('names').value.split(/\r?\n/).map((s) => s.trim()).filter(Boolean);
+const theme = () => document.querySelector('#theme [aria-pressed="true"]').dataset.v;
+
+function form() {
+  return {
+    type: $('type').value,
+    position: $('position').value,
+    department: $('department').disabled ? '' : $('department').value,
+    date: fmt($('date').value),
+    effective: fmt($('effective').value),
+    theme: theme()
+  };
+}
+
+function syncFields() {
+  const pos = opts.positions.find((p) => p.label === $('position').value);
+  $('department').disabled = !pos.scoped;
+  $('effWrap').hidden = $('type').value !== 'termination';
+  const n = names().length;
+  $('count').textContent = `${n} letter${n === 1 ? '' : 's'}`;
+  $('go').textContent = n > 1 ? `Generate ${n} PDFs` : 'Generate PDF';
+}
+
+let timer;
+function refresh() {
+  syncFields();
+  clearTimeout(timer);
+  timer = setTimeout(async () => {
+    const r = await fetch('/preview', { method: 'POST', body: JSON.stringify({ ...form(), name: names()[0] }) });
+    $('preview').srcdoc = await r.text();
+  }, 150);
+}
+
+function fit() {
+  const main = document.querySelector('main');
+  const s = Math.min(1, (main.clientWidth - 64) / 794, (window.innerHeight - 64) / 1123);
+  $('frame').style.setProperty('--s', Math.max(.3, s));
+}
+
+async function generate() {
+  const list = names();
+  if (!list.length) { $('result').innerHTML = '<div class="err">Enter at least one name.</div>'; return; }
+  $('go').disabled = true;
+  $('result').innerHTML = `<div class="count">Rendering ${list.length}…</div>`;
+  try {
+    const r = await fetch('/generate', { method: 'POST', body: JSON.stringify({ ...form(), names: $('names').value }) });
+    const j = await r.json();
+    const esc = (s) => s.replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
+    let html = '';
+    if (j.errors) html += j.errors.map((e) => `<div class="err">${esc(e)}</div>`).join('');
+    if (j.saved) {
+      html += `<div class="ok">Saved ${j.saved.length} PDF${j.saved.length === 1 ? '' : 's'} to letters/</div>`;
+      if (j.combined) html += `<div><a href="/${j.combined}" target="_blank">Open all in one PDF</a></div>`;
+      html += j.saved.map((p) => `<div><a href="/${p}" target="_blank">${esc(p.replace('out/pdf/', ''))}</a></div>`).join('');
+    }
+    if (j.warnings) html += j.warnings.map((w) => `<div class="warn">${esc(w)}</div>`).join('');
+    $('result').innerHTML = html;
+  } catch (e) {
+    $('result').innerHTML = `<div class="err">${e.message}</div>`;
+  } finally {
+    $('go').disabled = false;
+  }
+}
+
+(async () => {
+  opts = await (await fetch('/options')).json();
+  $('session').textContent = opts.session;
+  $('type').innerHTML = opts.types.map((t) => `<option value="${t.key}">${t.label}</option>`).join('');
+  $('position').innerHTML = opts.positions.map((p) => `<option>${p.label}</option>`).join('');
+  $('department').innerHTML = opts.departments.map((d) => `<option>${d}</option>`).join('');
+  $('position').value = 'Core Member';
+  $('date').value = new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+  $('effective').value = $('date').value;
+
+  for (const id of ['type', 'position', 'department', 'date', 'effective']) $(id).addEventListener('change', refresh);
+  $('names').addEventListener('input', refresh);
+  document.querySelectorAll('#theme button').forEach((b) => b.addEventListener('click', () => {
+    document.querySelectorAll('#theme button').forEach((x) => x.setAttribute('aria-pressed', x === b));
+    refresh();
+  }));
+  $('go').addEventListener('click', generate);
+  addEventListener('resize', fit);
+  fit();
+  refresh();
+})();
+</script>
+</body>
+</html>

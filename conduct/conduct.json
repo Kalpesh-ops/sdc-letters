@@ -1,0 +1,231 @@
+{
+  "_note": "Wording for the Code of Conduct booklet. Edit text here, then run: node conduct/render.mjs. <strong> is allowed. Keep each page's content short enough to fit; the renderer warns if a page overflows.",
+  "session": "Session 2026—27",
+  "president": {
+    "name": "Kalpesh Parashar",
+    "role": "President"
+  },
+  "cover": {
+    "kicker": "For core members",
+    "title": [
+      "Code of",
+      "Conduct"
+    ],
+    "script": "together",
+    "lede": "Not an imposition — a shared framework so we can work together smoothly, professionally and with respect for one another."
+  },
+  "pages": [
+    {
+      "eyebrow": "01 — How we work",
+      "title": "How we work",
+      "intro": "Joining the Software Development Club as a core member means joining a team that runs real events, ships real projects and represents the club to the whole university. These are the habits that make that possible.",
+      "clauses": [
+        {
+          "title": "Communication",
+          "points": [
+            "Our official channel is the club's <strong>WhatsApp groups</strong>. Keep work discussions there so everyone stays informed.",
+            "Prompt responses are expected, especially to your Lead and to time-sensitive messages.",
+            "Share progress, questions and blockers early — silence is the one update nobody can act on."
+          ]
+        },
+        {
+          "title": "Attendance and punctuality",
+          "points": [
+            "Regular attendance at meetings, gatherings, discussions and club events is expected.",
+            "Be on time. If you cannot make it, tell your Lead in advance.",
+            "A deadline you accept is a commitment to the rest of the team."
+          ]
+        },
+        {
+          "title": "Ownership and accountability",
+          "points": [
+            "Take ownership of the tasks you are given and see them through.",
+            "If something gets difficult, raise it with your Lead early rather than staying silent.",
+            "Deliver what you commit to, reliably."
+          ]
+        }
+      ]
+    },
+    {
+      "eyebrow": "01 — How we work",
+      "title": "How we carry ourselves",
+      "clauses": [
+        {
+          "title": "Respect and collaboration",
+          "points": [
+            "Acknowledge and appreciate everyone's contributions, big or small.",
+            "Treat every member with courtesy, regardless of role, year or experience.",
+            "Help other teams when they need it — every event is a club effort."
+          ]
+        },
+        {
+          "title": "Conduct in groups",
+          "points": [
+            "Keep official groups professional, especially in front of juniors, participants and guests.",
+            "Keep them on topic: no spam, no arguments, no forwards unrelated to club work.",
+            "Our behaviour sets the tone for the whole club."
+          ]
+        },
+        {
+          "title": "Resolving disagreements",
+          "points": [
+            "Address disagreements calmly and respectfully.",
+            "Never escalate a conflict in a public group. Resolve it privately, or bring it to your Lead."
+          ]
+        },
+        {
+          "title": "Solutions over blame",
+          "points": [
+            "When something goes wrong, focus on fixing it rather than on who caused it.",
+            "Own your mistakes, learn from them and move forward together."
+          ]
+        },
+        {
+          "title": "Keep growing",
+          "points": [
+            "Keep up a regular practice of DSA and coding problems to sharpen your technical skills while you are part of the club.",
+            "Attend the club's sessions, share what you learn and help others learn too."
+          ]
+        }
+      ]
+    },
+    {
+      "eyebrow": "02 — Integrity",
+      "title": "Integrity and trust",
+      "intro": "The club runs on trust — between members, with our partners and with the university. These points protect it.",
+      "clauses": [
+        {
+          "title": "Confidentiality",
+          "points": [
+            "Internal plans, sponsor and partner discussions, budgets, credentials and internal chats stay inside the club.",
+            "Do not share screenshots of internal groups outside the club."
+          ]
+        },
+        {
+          "title": "Club resources and accounts",
+          "points": [
+            "Get your Lead's approval before using club resources, funds, equipment or accounts.",
+            "Keep club files on club accounts and drives. Never share passwords or access."
+          ]
+        },
+        {
+          "title": "Original work and credit",
+          "points": [
+            "Plagiarism, or passing off someone else's work as your own, is not acceptable.",
+            "Credit your collaborators, and respect the licences of fonts, images and code you use."
+          ]
+        },
+        {
+          "title": "Using AI tools",
+          "points": [
+            "AI tools are welcome in club work, but you own the result: check it before it goes out.",
+            "Never paste confidential information or credentials into an AI tool.",
+            "Do not present AI output as your own where originality is judged, such as competitions and hackathons."
+          ]
+        },
+        {
+          "title": "Representing the club",
+          "points": [
+            "Online and at events, you represent the Software Development Club.",
+            "Do not post or speak on the club's behalf without approval, and keep disputes out of public view."
+          ]
+        },
+        {
+          "title": "Respect and inclusion",
+          "points": [
+            "Harassment, discrimination, bullying or abusive language toward anyone, in person or online, is never acceptable.",
+            "Everyone deserves to feel safe and welcome in the club."
+          ]
+        }
+      ]
+    },
+    {
+      "eyebrow": "03 — When things go wrong",
+      "title": "Raising issues",
+      "kind": "process",
+      "intro": "Most problems are solved with a conversation. Here is who to talk to, and what happens when the code is not followed.",
+      "reporting": {
+        "label": "Who to talk to",
+        "steps": [
+          {
+            "who": "Your Lead and Co-Lead",
+            "what": "Your first point of contact for your work, your concerns and your ideas. You always have the right to suggest ideas to them."
+          },
+          {
+            "who": "Operations Lead or General Secretary",
+            "what": "If your concern is not heard, or your Lead cannot be reached, take the matter to either of them directly."
+          }
+        ]
+      },
+      "ladder": {
+        "label": "If the code is not followed",
+        "steps": [
+          {
+            "step": "Verbal warning",
+            "what": "For a first instance, such as a missed deadline, unexplained absence or unprofessional message."
+          },
+          {
+            "step": "Written warning",
+            "what": "If the issue continues or repeats after a verbal warning. It is recorded."
+          },
+          {
+            "step": "Termination",
+            "what": "If the issue continues after a written warning. Issued by letter."
+          }
+        ]
+      },
+      "severe": {
+        "label": "Immediate termination",
+        "intro": "Some conduct skips the warnings entirely:",
+        "points": [
+          "Leaking internal club information.",
+          "Harassment, discrimination or serious disrespect toward anyone.",
+          "Conduct that brings the club into disrepute."
+        ]
+      },
+      "appeal": {
+        "label": "Right to appeal",
+        "text": "Any disciplinary decision can be appealed in writing to the <strong>Vice President</strong> within <strong>seven days</strong>. Every appeal is considered and answered."
+      }
+    },
+    {
+      "eyebrow": "04 — Our teams",
+      "title": "Our teams",
+      "kind": "teams",
+      "intro": "You will report to your team's Lead and Co-Lead. Here is what each team does.",
+      "teams": [
+        {
+          "name": "Technical",
+          "role": "The backbone of the club's technical work.",
+          "duties": "Builds and maintains the club's applications, website and tools; sets up technical infrastructure for events, workshops and hackathons; leads technical sessions and supports other teams."
+        },
+        {
+          "name": "Event Management",
+          "role": "Plans and runs every club event, from idea to wrap-up.",
+          "duties": "Prepares event plans, schedules and logistics; coordinates requirements across teams; runs the event on the day, handles issues on the spot and follows up afterwards."
+        },
+        {
+          "name": "Design",
+          "role": "Keeps the club's visual identity consistent and professional.",
+          "duties": "Creates posters, banners, social creatives and certificates in the club's design system; designs event visuals and decor; supplies design assets to other teams."
+        },
+        {
+          "name": "Public Relations and Outreach",
+          "role": "Builds the club's public image and relationships beyond the club.",
+          "duties": "Secures sponsorships and partnerships; invites speakers and industry experts; reaches out to other clubs, colleges, communities and alumni; drives promotion and attendance."
+        },
+        {
+          "name": "Social Media and Content",
+          "role": "Runs the club's digital presence.",
+          "duties": "Manages posts and stories on Instagram and LinkedIn; covers events in photos; writes announcements, captions, reports and newsletters; keeps the content calendar."
+        },
+        {
+          "name": "Videography and Editing",
+          "role": "Tells the club's story on video.",
+          "duties": "Shoots event coverage, interviews and behind-the-scenes footage; edits reels, aftermovies and promos; keeps the footage archive; delivers edits to Social Media and Content on time."
+        }
+      ],
+      "closing": "This code exists so that every member can do their best work in a club they are proud of. Read it, live by it, and hold one another to it — kindly."
+    }
+  ]
+}

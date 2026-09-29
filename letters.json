@@ -1,0 +1,38 @@
+{
+  "_note": "One record per letter. `type` is appointment | promotion | termination. `theme` is dark | light. Everything else is substituted into copy.json wording.",
+
+  "defaults": {
+    "session": "Session 2026—27",
+    "theme": "dark",
+    "watermark": "centre",
+    "presidentName": "Kalpesh Parashar",
+    "presidentRole": "President",
+    "coordinatorName": "Dr. Praveen Lalwani",
+    "coordinatorRole": "Faculty Coordinator"
+  },
+
+  "letters": [
+    {
+      "type": "appointment",
+      "name": "Aashish Prasad",
+      "department": "Event Management",
+      "position": "Co-Lead",
+      "date": "14 September 2026"
+    },
+    {
+      "type": "promotion",
+      "name": "Devyanshu Negi",
+      "department": "Technical",
+      "position": "Lead",
+      "date": "14 September 2026"
+    },
+    {
+      "type": "termination",
+      "name": "Lorem Ipsum Dolor",
+      "department": "Design",
+      "position": "Co-Lead",
+      "date": "14 September 2026",
+      "effective": "14 Sept 2026"
+    }
+  ]
+}
