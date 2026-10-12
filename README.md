@@ -183,8 +183,6 @@ When a new academic session starts or club leadership changes, update **[`letter
   "session": "Session 2026—27",
   "theme": "dark",
   "watermark": "centre",
-  "presidentName": "Kalpesh Parashar",
-  "presidentRole": "President",
   "coordinatorName": "Dr. Praveen Lalwani",
   "coordinatorRole": "Faculty Coordinator"
 }

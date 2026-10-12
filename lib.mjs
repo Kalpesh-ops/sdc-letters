@@ -172,8 +172,6 @@ export function renderSheet(rec, data, assets = './brand') {
     .replaceAll('{{BODY}}', buildBody(copy, rec))
     .replaceAll('{{COORDINATOR_NAME}}', esc(rec.coordinatorName))
     .replaceAll('{{COORDINATOR_ROLE}}', esc(rec.coordinatorRole))
-    .replaceAll('{{PRESIDENT_NAME}}', esc(rec.presidentName))
-    .replaceAll('{{PRESIDENT_ROLE}}', esc(rec.presidentRole))
     .replaceAll('{{SESSION}}', esc(rec.session));
 }
 
